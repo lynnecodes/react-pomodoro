@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './App.css';
+import "tailwindcss/tailwind.css"
+
 
 {/* want extra zero; convert to string to use padStart; outside of component as helper function; irrelevant to component */}
 function padTime(time) {
@@ -88,21 +90,21 @@ export default function App() {
   const seconds = padTime(timeLeft - minutes * 60);
 
   return (
-    <div className="app">
-      <h2>{title}</h2>
+      <div className="app">
+        <h2>{title}</h2>
 
-      <div className="timer">
-        <span>{minutes}</span>
-        <span>:</span>
-        <span>{seconds}</span>
-      </div>
+        <div className="timer">
+          <span>{minutes}</span>
+          <span>:</span>
+          <span>{seconds}</span>
+        </div>
 
-      <div className="buttons">
-        {/* Add event listeners; conditionally render each one */}
-        {!isRunning && <button onClick={startTimer}>Start</button>}
-        {isRunning && <button onClick={stopTimer}>Stop</button>}
-        <button onClick={resetTimer}>Reset</button>
+        <div className="buttons">
+          {/* Add event listeners; conditionally render each one */}
+          {!isRunning && <button onClick={startTimer}>Start</button>}
+          {isRunning && <button onClick={stopTimer}>Stop</button>}
+          <button onClick={resetTimer}>Reset</button>
+        </div>
       </div>
-    </div>
   );
 }
